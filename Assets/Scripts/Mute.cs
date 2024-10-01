@@ -20,6 +20,5 @@ public class Mute : MonoBehaviour
 
         if (_isMute)
             _mixer.SetFloat(Master, _minVolume);
-            
     }
 }
