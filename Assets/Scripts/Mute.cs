@@ -1,12 +1,23 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Mute : MonoBehaviour
 {
-    [SerializeField] private AudioSource [] _audioSource;
+    [SerializeField] private AudioMixer _mixer;
+
+    private bool _isMute = false;
+    private int _minVolume = -60;
+    private int _maxVolume = 0;
+
+    public bool IsMute => _isMute;
 
     public void OnValueChanged()
     {
-        foreach (AudioSource audioSource in _audioSource)
-            audioSource.mute = !audioSource.mute;
+        _isMute =! _isMute;
+
+        if (_isMute)
+            _mixer.SetFloat("Master", _minVolume);
+        else
+            _mixer.SetFloat("Master", _maxVolume);
     }
 }

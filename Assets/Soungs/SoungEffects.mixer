@@ -26,7 +26,7 @@ AudioMixerController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SoungEffects
-  m_OutputGroup: {fileID: 24300002, guid: d3c0eb5b11600e443a85fdd7e851873e, type: 2}
+  m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
