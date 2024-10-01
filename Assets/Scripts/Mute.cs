@@ -3,6 +3,8 @@ using UnityEngine.Audio;
 
 public class Mute : MonoBehaviour
 {
+    private const string Master = nameof(Master);
+
     [SerializeField] private AudioMixer _mixer;
 
     private bool _isMute = false;
@@ -14,10 +16,10 @@ public class Mute : MonoBehaviour
     public void OnValueChanged()
     {
         _isMute =! _isMute;
+        _mixer.SetFloat(Master, _maxVolume);
 
         if (_isMute)
-            _mixer.SetFloat("Master", _minVolume);
-        else
-            _mixer.SetFloat("Master", _maxVolume);
+            _mixer.SetFloat(Master, _minVolume);
+            
     }
 }

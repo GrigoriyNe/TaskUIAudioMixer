@@ -4,6 +4,10 @@ using UnityEngine.UI;
 
 public class VolumeSlider : MonoBehaviour
 {
+    private const string Master = nameof(Master);
+    private const string Music = nameof(Music);
+    private const string Bottom = nameof(Bottom);
+
     [SerializeField] private AudioMixer _mixer;
     [SerializeField] private Mute _mute;
 
@@ -18,16 +22,16 @@ public class VolumeSlider : MonoBehaviour
     public void SetCommonVolume()
     {
         if (_mute.IsMute == false)
-            _mixer.SetFloat("Master", Mathf.Log10(_slider.value) * _valueMultiplicationForMixerVolume);
+            _mixer.SetFloat(Master, Mathf.Log10(_slider.value) * _valueMultiplicationForMixerVolume);
     }
 
     public void SetMusicVolume()
     {
-        _mixer.SetFloat("Music", Mathf.Log10(_slider.value) * _valueMultiplicationForMixerVolume);
+        _mixer.SetFloat(Music, Mathf.Log10(_slider.value) * _valueMultiplicationForMixerVolume);
     }
 
     public void SetBottomVolume()
     {
-        _mixer.SetFloat("Bottom", Mathf.Log10(_slider.value) * _valueMultiplicationForMixerVolume);
+        _mixer.SetFloat(Bottom, Mathf.Log10(_slider.value) * _valueMultiplicationForMixerVolume);
     }
 }
